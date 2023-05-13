@@ -8,8 +8,7 @@ pipeline{
         }
     stage ('Initialize & SonarQube Scan') {
         steps {
-        def scannerHome = tool 'sonarScanner';
-        withSonarQubeEnv('My SonarQube Server') {
+        withSonarQubeEnv('SonarQube') {
             mvn sonar:sonar
             }
           }
