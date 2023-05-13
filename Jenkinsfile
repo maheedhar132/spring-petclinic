@@ -7,12 +7,14 @@ pipeline{
             }
         }
         stage('Sonar Scan'){
-stage ('Initialize & SonarQube Scan') {
+    stage ('Initialize & SonarQube Scan') {
         steps {
         def scannerHome = tool 'sonarScanner';
         withSonarQubeEnv('My SonarQube Server') {
             mvn sonar:sonar
             }
           }
+        }
+    }
     }
 }
