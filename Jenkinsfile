@@ -7,9 +7,12 @@ pipeline{
             }
         }
         stage('Sonar Scan'){
-            steps{
-                sh 'echo "Hello"'
+stage ('Initialize & SonarQube Scan') {
+        steps {
+        def scannerHome = tool 'sonarScanner';
+        withSonarQubeEnv('My SonarQube Server') {
+            mvn sonar:sonar
             }
-        }
+          }
     }
 }
