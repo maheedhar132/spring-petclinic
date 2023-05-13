@@ -6,7 +6,6 @@ pipeline{
             sh 'mvn clean package'
             }
         }
-        stage('Sonar Scan'){
     stage ('Initialize & SonarQube Scan') {
         steps {
         def scannerHome = tool 'sonarScanner';
@@ -15,6 +14,5 @@ pipeline{
             }
           }
         }
-    }
     }
 }
